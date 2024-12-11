@@ -1,0 +1,43 @@
+.calendar {
+    width: 500px;
+    height: 100vh; /* Make sure the calendar takes the full height of the viewport */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ensure children are stacked vertically */
+    background-color: #ffffff; /* Add a background color */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.day, .empty-day {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+}
+
+.day {
+    background-color: #000000;
+    color: #ffffff; /* Ensure text is visible on dark background */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
