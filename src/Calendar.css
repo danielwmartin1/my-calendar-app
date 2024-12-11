@@ -1,27 +1,38 @@
+:root {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --header-background-color: #333333;
+    --days-background-color: #1a1a1a;
+    --day-background-color: #ffffff;
+    --day-text-color: #000000;
+    --border-color: #666666;
+}
+
 .calendar {
-    width: 100vw;
-    height: 100vh; /* Make sure the calendar takes the full height of the viewport */
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column; /* Ensure children are stacked vertically */
-    background-color: #ffffff; /* Add a background color */
+    background-color: var(--background-color); /* Add a background color */
+    color: var(--text-color); /* Set text color */
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 0.5rem;
     width: 80%;
     padding: 1rem; /* Add padding for better spacing */
+    background-color: var(--header-background-color); /* Add background color */
 }
 
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1rem; /* Use relative units for gap */
-    background-color: #f0f0f0;
+    background-color: var(--days-background-color); /* Add background color */
     text-align: center;
     border-radius: 0.5rem; /* Use relative units for border radius */
     justify-content: center; /* Center the grid items horizontally */
@@ -35,13 +46,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color); /* Use border color */
     border-radius: 0.5rem; /* Use relative units for border radius */
 }
 
 .day {
-    background-color: #000000;
-    color: #ffffff; /* Ensure text is visible on dark background */
+    background-color: var(--day-background-color); /* Add background color */
+    color: var(--day-text-color); /* Ensure text is visible on light background */
     text-align: center;
     display: flex;
     justify-content: center;
