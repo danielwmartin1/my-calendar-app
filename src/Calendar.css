@@ -1,5 +1,5 @@
 .calendar {
-    width: 500px;
+    width: 100vw;
     height: 100vh; /* Make sure the calendar takes the full height of the viewport */
     margin: 0 auto;
     display: flex;
@@ -13,24 +13,30 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    width: 80%;
+    padding: 1rem; /* Add padding for better spacing */
 }
 
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    gap: 1rem; /* Use relative units for gap */
     background-color: #f0f0f0;
     text-align: center;
+    border-radius: 0.5rem; /* Use relative units for border radius */
+    justify-content: center; /* Center the grid items horizontally */
+    align-items: center; /* Center the grid items vertically */
+    padding: 2rem; /* Use relative units for padding */
 }
 
 .day, .empty-day {
-    width: 40px;
-    height: 40px;
+    width: 4rem; /* Use relative units for width */
+    height: 4rem; /* Use relative units for height */
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
+    border-radius: 0.5rem; /* Use relative units for border radius */
 }
 
 .day {
@@ -40,4 +46,56 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0.5rem; /* Use relative units for border radius */
+}
+
+@media (max-width: 768px) {
+    .header {
+        width: 80%;
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .days {
+        gap: 0.5rem; /* Adjust gap for smaller screens */
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .day, .empty-day {
+        width: 3.5rem; /* Adjust width for smaller screens */
+        height: 3.5rem; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        width: 80%;
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .days {
+        gap: 0.5rem; /* Adjust gap for smaller screens */
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .day, .empty-day {
+        width: 3rem; /* Adjust width for smaller screens */
+        height: 3rem; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .header {
+        width: 80%;
+        padding: 0.25rem; /* Adjust padding for smaller screens */
+    }
+
+    .days {
+        gap: 0.25rem; /* Adjust gap for smaller screens */
+        padding: 0.25rem; /* Adjust padding for smaller screens */
+    }
+
+    .day, .empty-day {
+        width: 2.5rem; /* Adjust width for smaller screens */
+        height: 2.5rem; /* Adjust height for smaller screens */
+    }
 }
