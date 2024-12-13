@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Calendar.css';
+import Day from './Day';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDay, setSelectedDay] = useState(null);
 
   const renderDays = () => {
     const days = [];
@@ -14,7 +16,7 @@ const Calendar = () => {
     }
 
     for (let i = 1; i <= daysInMonth; i++) {
-      days.push(<div key={i} className="day">{i}</div>);
+      days.push(<Day key={i} day={i} onClick={handleDayClick} />);
     }
 
     return days;
@@ -28,6 +30,11 @@ const Calendar = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
   };
 
+  const handleDayClick = (day) => {
+    setSelectedDay(day);
+    alert(`Day ${day} clicked!`);
+  };
+
   return (
     <div className="calendar">
       <div className="header">
@@ -38,6 +45,7 @@ const Calendar = () => {
       <div className="days">
         {renderDays()}
       </div>
+      {selectedDay && <div className="selected-day">Selected Day: {selectedDay}</div>}
     </div>
   );
 };
