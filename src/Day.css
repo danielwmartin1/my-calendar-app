@@ -9,12 +9,21 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
+    -webkit-transition: background-color 0.3s ease, -webkit-transform 0.3s ease;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    padding: 1rem;
 }
 
 .day:hover {
     background-color: #e0e0e0;
     transform: scale(1.05);
+}
+
+.day.active {
+    background-color: #00796b;
+    color: white;
 }
 
 .day-number {

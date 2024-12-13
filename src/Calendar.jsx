@@ -6,6 +6,9 @@ import Schedule from './Schedule';
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedDayOfWeek, setSelectedDayOfWeek] = useState('');
+  const [selectedYear, setSelectedYear] = useState(currentDate.getFullYear());
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -27,15 +30,25 @@ const Calendar = () => {
   };
 
   const handlePrevMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+    setCurrentDate(newDate);
+    setSelectedYear(newDate.getFullYear());
   };
 
   const handleNextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+    setCurrentDate(newDate);
+    setSelectedYear(newDate.getFullYear());
   };
 
-  const handleDayClick = (day) => {
-    setSelectedDay(day);
+  const handleDayClick = (dayNumber, dayOfWeek) => {
+    setSelectedDay(dayNumber);
+    setSelectedDayOfWeek(dayOfWeek);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
   };
 
   return (
@@ -49,7 +62,8 @@ const Calendar = () => {
         {renderDays()}
       </div>
       <div className="footer">
-        {selectedDay && <Schedule day={selectedDay} />}
+        {selectedDay && <Schedule day={selectedDay} dayOfWeek={selectedDayOfWeek} year={selectedYear} modalIsOpen={modalIsOpen} closeModal={closeModal} />}
+        <p>Daniel Martin &copy; {new Date().getFullYear()}</p>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 .schedule-container {
     position: fixed;
     top: 50%;
-    right: 20px;
     transform: translateY(-50%);
     width: 300px;
     padding: 20px;
@@ -50,5 +49,38 @@
 }
 
 .openSchedule {
-    margin: 10px 0;
+    margin: 1rem 0rem 0rem 0rem;
 }
+
+.schedule {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #e0f7fa;
+    border-radius: 16px;
+    color: black;
+    font-weight: bold;
+    border: 3px solid #0095ff;
+}
+
+.schedule-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #75b6f3; /* Different color background */
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #0095ff;
+    z-index: 1000;
+}
+

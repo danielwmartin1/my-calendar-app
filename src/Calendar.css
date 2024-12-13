@@ -11,13 +11,14 @@
 .calendar {
     margin: 0 auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column; /* Ensure children are stacked vertically */
     background-color: var(--background-color); /* Add a background color */
     color: var(--text-color); /* Set text color */
     border: 5px ridge var(--border-color); /* Add a border with a ridge style */
     border-radius: 16px;
+    padding: 1rem 0; /* Use relative units for padding */
 }
 
 .header {
@@ -44,7 +45,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1rem; /* Use relative units for gap */
-    background-color: var(--days-background-color); /* Add background color */
+    background-color: #0e446b; /* Add background color */
     text-align: center;
     border-radius: 0.5rem; /* Use relative units for border radius */
     justify-content: center; /* Center the grid items horizontally */
@@ -85,16 +86,48 @@
 
 .btn {
     padding: 0.5rem 1rem; /* Add padding to button */
-    background-color: #5d5d5da6; /* Add background color */
+    background-color: #00c3ffa6; /* Add background color */
     color: var(--text-color); /* Set text color */
-    border: none; /* Remove border */
+    border: 1px solid aqua; /* Remove border */
     border-radius: 0.5rem; /* Use relative units for border radius */
     cursor: pointer; /* Add pointer cursor */
     margin: 0 5rem;
 }
 
+.btn:hover {
+    background-color: #00c3ff; /* Change background color on hover */
+    color: var(--text-color); /* Change text color on hover */
+}
+
+.btn:active {
+    background-color: #00a2ff; /* Change background color on active state */
+    color: var(--text-color); /* Change text color on active state */
+}
+
+.schedule-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #75e4f3; /* Different color background */
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
 @media (max-width: 768px) {
     .header {
+        width: 80%;
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+
+    .footer {
         width: 80%;
         padding: 0.5rem; /* Adjust padding for smaller screens */
     }
@@ -116,6 +149,11 @@
         padding: 0.5rem; /* Adjust padding for smaller screens */
     }
 
+    .footer {
+        width: 80%;
+        padding: 0.5rem; /* Adjust padding for smaller screens */
+    }
+
     .days {
         gap: 0.5rem; /* Adjust gap for smaller screens */
         padding: 0.5rem; /* Adjust padding for smaller screens */
@@ -129,6 +167,11 @@
 
 @media (max-width: 400px) {
     .header {
+        width: 80%;
+        padding: 0.25rem; /* Adjust padding for smaller screens */
+    }
+
+    .footer {
         width: 80%;
         padding: 0.25rem; /* Adjust padding for smaller screens */
     }

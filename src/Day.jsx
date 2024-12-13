@@ -1,10 +1,9 @@
-// Day.jsx
 import './Day.css';
 import PropTypes from 'prop-types';
 
 const Day = ({ day, dayNumber, onClick }) => {
     return (
-        <div className="day" onClick={() => onClick(dayNumber)}>
+        <div className="day" onClick={() => onClick(dayNumber, day)}>
             <span className="day-name">{day}</span>
             <span className="day-number">{dayNumber}</span>
         </div>
