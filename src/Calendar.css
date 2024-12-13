@@ -25,7 +25,7 @@
     gap: 0.5rem;
     width: 80%;
     padding: 1rem; /* Add padding for better spacing */
-    background-color: var(--header-background-color); /* Add background color */
+    background-color: transparent; /* Make background transparent */
 }
 
 .days {
@@ -48,6 +48,11 @@
     align-items: center;
     border: 1px solid var(--border-color); /* Use border color */
     border-radius: 0.5rem; /* Use relative units for border radius */
+}
+
+.empty-day {
+    background-color: transparent; /* Make background transparent */
+    border: none; /* Remove border */
 }
 
 .day {

@@ -6,6 +6,8 @@ const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState(null);
 
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
   const renderDays = () => {
     const days = [];
     const startDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
@@ -16,7 +18,8 @@ const Calendar = () => {
     }
 
     for (let i = 1; i <= daysInMonth; i++) {
-      days.push(<Day key={i} day={i} onClick={handleDayClick} />);
+      const dayOfWeek = daysOfWeek[(startDay + i - 1) % 7];
+      days.push(<Day key={i} day={dayOfWeek} dayNumber={i} onClick={handleDayClick} />);
     }
 
     return days;
