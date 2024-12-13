@@ -1,11 +1,11 @@
 :root {
-    --background-color: #000000;
+    --background-color: #2238de;
     --text-color: #ffffff;
     --header-background-color: #333333;
     --days-background-color: #1a1a1a;
     --day-background-color: #ffffff;
     --day-text-color: #000000;
-    --border-color: #666666;
+    --border-color: #00fff7;
 }
 
 .calendar {
@@ -16,16 +16,28 @@
     flex-direction: column; /* Ensure children are stacked vertically */
     background-color: var(--background-color); /* Add a background color */
     color: var(--text-color); /* Set text color */
+    border: 5px ridge var(--border-color); /* Add a border with a ridge style */
+    border-radius: 16px;
 }
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    width: 80%;
-    padding: 1rem; /* Add padding for better spacing */
+    width: 100%;
     background-color: transparent; /* Make background transparent */
+    border-bottom: 5px ridge var(--border-color); /* Add a border to the header */
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    background-color: transparent; /* Make background transparent */
+    border-top: 5px ridge var(--border-color); /* Add a border to the footer */
 }
 
 .days {
@@ -63,6 +75,22 @@
     justify-content: center;
     align-items: center;
     border-radius: 0.5rem; /* Use relative units for border radius */
+}
+
+.day:hover {
+    background-color: var(--background-color); /* Change background color on hover */
+    color: var(--text-color); /* Change text color on hover */
+    cursor: pointer; /* Add pointer cursor on hover */
+}
+
+.btn {
+    padding: 0.5rem 1rem; /* Add padding to button */
+    background-color: #5d5d5da6; /* Add background color */
+    color: var(--text-color); /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 0.5rem; /* Use relative units for border radius */
+    cursor: pointer; /* Add pointer cursor */
+    margin: 0 5rem;
 }
 
 @media (max-width: 768px) {

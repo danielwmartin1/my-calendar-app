@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Calendar.css';
 import Day from './Day';
+import Schedule from './Schedule';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -35,20 +36,21 @@ const Calendar = () => {
 
   const handleDayClick = (day) => {
     setSelectedDay(day);
-    alert(`Day ${day} clicked!`);
   };
 
   return (
     <div className="calendar">
       <div className="header">
-        <button onClick={handlePrevMonth}>Prev</button>
+        <button className="btn prev" onClick={handlePrevMonth}>Prev</button>
         <h2>{currentDate.toLocaleString('default', { month: 'long' })} {currentDate.getFullYear()}</h2>
-        <button onClick={handleNextMonth}>Next</button>
+        <button className="btn next" onClick={handleNextMonth}>Next</button>
       </div>
       <div className="days">
         {renderDays()}
       </div>
-      {selectedDay && <div className="selected-day">Selected Day: {selectedDay}</div>}
+      <div className="footer">
+        {selectedDay && <Schedule day={selectedDay} />}
+      </div>
     </div>
   );
 };
